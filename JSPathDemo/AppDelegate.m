@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import "JSPatch/JPEngine.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [JPEngine startEngine];
+    NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"JSDemo" ofType:@"js"];
+    NSString *script = [NSString stringWithContentsOfFile:sourcePath encoding:NSUTF8StringEncoding error:nil];
+    [JPEngine evaluateScript:script];
+    
+    ViewController *vc = [[ViewController alloc]init];
+    vc.title = @"JSPath Demo";
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+    self.window.rootViewController = nav;
     return YES;
 }
 
@@ -38,8 +48,16 @@
 }
 
 
+// 这个方法在程序启动和后台回到前台时都会调用,最好设置间隔时间
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    // 下载后台JS文件
+    /*先要检测是距离上次发请求的时间间隔是否超过1小时，超过则发请求，否则跳过。
+     ...
+     */
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://cnbang.net/test.js"]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        NSString *script = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        [JPEngine evaluateScript:script];
+    }];
 }
 
 

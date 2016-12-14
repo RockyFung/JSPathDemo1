@@ -15,6 +15,10 @@
 		5C3117F31E0122DD00EAC3DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C3117F11E0122DD00EAC3DB /* LaunchScreen.storyboard */; };
 		5C3117FE1E0122DD00EAC3DB /* JSPathDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3117FD1E0122DD00EAC3DB /* JSPathDemoTests.m */; };
 		5C3118091E0122DD00EAC3DB /* JSPathDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3118081E0122DD00EAC3DB /* JSPathDemoUITests.m */; };
+		5C31181A1E01284C00EAC3DB /* JPEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3118181E01284C00EAC3DB /* JPEngine.m */; };
+		5C31181B1E01284C00EAC3DB /* JSPatch.js in Resources */ = {isa = PBXBuildFile; fileRef = 5C3118191E01284C00EAC3DB /* JSPatch.js */; };
+		5C31181D1E0128C000EAC3DB /* JSDemo.js in Resources */ = {isa = PBXBuildFile; fileRef = 5C31181C1E0128C000EAC3DB /* JSDemo.js */; };
+		5C3118201E012C7C00EAC3DB /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C31181F1E012C7C00EAC3DB /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,12 @@
 		5C3118041E0122DD00EAC3DB /* JSPathDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSPathDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C3118081E0122DD00EAC3DB /* JSPathDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSPathDemoUITests.m; sourceTree = "<group>"; };
 		5C31180A1E0122DD00EAC3DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C3118171E01284C00EAC3DB /* JPEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPEngine.h; sourceTree = "<group>"; };
+		5C3118181E01284C00EAC3DB /* JPEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPEngine.m; sourceTree = "<group>"; };
+		5C3118191E01284C00EAC3DB /* JSPatch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JSPatch.js; sourceTree = "<group>"; };
+		5C31181C1E0128C000EAC3DB /* JSDemo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = JSDemo.js; path = JSPatch/JSDemo.js; sourceTree = "<group>"; };
+		5C31181E1E012C7C00EAC3DB /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		5C31181F1E012C7C00EAC3DB /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +111,14 @@
 		5C3117E21E0122DD00EAC3DB /* JSPathDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5C3118161E01284C00EAC3DB /* JSPatch */,
 				5C3117E61E0122DD00EAC3DB /* AppDelegate.h */,
 				5C3117E71E0122DD00EAC3DB /* AppDelegate.m */,
 				5C3117E91E0122DD00EAC3DB /* ViewController.h */,
 				5C3117EA1E0122DD00EAC3DB /* ViewController.m */,
+				5C31181E1E012C7C00EAC3DB /* DetailViewController.h */,
+				5C31181F1E012C7C00EAC3DB /* DetailViewController.m */,
+				5C31181C1E0128C000EAC3DB /* JSDemo.js */,
 				5C3117EC1E0122DD00EAC3DB /* Main.storyboard */,
 				5C3117EF1E0122DD00EAC3DB /* Assets.xcassets */,
 				5C3117F11E0122DD00EAC3DB /* LaunchScreen.storyboard */,
@@ -138,6 +152,16 @@
 				5C31180A1E0122DD00EAC3DB /* Info.plist */,
 			);
 			path = JSPathDemoUITests;
+			sourceTree = "<group>";
+		};
+		5C3118161E01284C00EAC3DB /* JSPatch */ = {
+			isa = PBXGroup;
+			children = (
+				5C3118171E01284C00EAC3DB /* JPEngine.h */,
+				5C3118181E01284C00EAC3DB /* JPEngine.m */,
+				5C3118191E01284C00EAC3DB /* JSPatch.js */,
+			);
+			path = JSPatch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +275,8 @@
 			files = (
 				5C3117F31E0122DD00EAC3DB /* LaunchScreen.storyboard in Resources */,
 				5C3117F01E0122DD00EAC3DB /* Assets.xcassets in Resources */,
+				5C31181B1E01284C00EAC3DB /* JSPatch.js in Resources */,
+				5C31181D1E0128C000EAC3DB /* JSDemo.js in Resources */,
 				5C3117EE1E0122DD00EAC3DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +302,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C3118201E012C7C00EAC3DB /* DetailViewController.m in Sources */,
 				5C3117EB1E0122DD00EAC3DB /* ViewController.m in Sources */,
+				5C31181A1E01284C00EAC3DB /* JPEngine.m in Sources */,
 				5C3117E81E0122DD00EAC3DB /* AppDelegate.m in Sources */,
 				5C3117E51E0122DD00EAC3DB /* main.m in Sources */,
 			);
